@@ -1,15 +1,14 @@
-import './App.css';
-// import Sidebar from './components/Sidebar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Sidebar from './components/Sidebar';
-// import Overview from './pages/Overview';
-// import { Reports, ReportsOne, ReportsTwo, ReportsThree } from './pages/Reports';
-// import Team from './pages/Team';
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Login, Register } from "./pages";
 
 function App() {
-  return (
-    <Sidebar/>
-  );
+	return (
+		<Routes>
+			<Route path="/login" element={<Login />}></Route>
+			<Route path="/register" element={<Register />}></Route>
+		</Routes>
+	);
 }
 
 export default App;
