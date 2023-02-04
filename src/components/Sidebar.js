@@ -9,9 +9,8 @@ import { IconContext } from "react-icons/lib";
 
 const Nav = styled.div`
 	background: #22223f;
-	height: 80px;
+	height: 60px;
 	display: flex;
-	justify-content: flex-start;
 	align-items: center;
 `;
 
@@ -50,12 +49,14 @@ const Sidebar = () => {
 	return (
 		<>
 			<IconContext.Provider value={{ color: "#fff" }}>
-				<Nav>
-					<NavIcon>
-						<FaIcons.FaBars onClick={showSidebar} />
-					</NavIcon>
+				<Nav className="flex flex-row justify-between w-full">
+					<div className="text-white font-semibold text-xl ml-3">StudyPat</div>
+					<div className="flex flex-row mr-8">
+						<div className="text-white  text-xl mr-3">Your Notes</div>
+						<div className="text-white text-xl mr-3">Quiz</div>
+					</div>
 				</Nav>
-				<SidebarNav sidebar={sidebar}>
+				{/* <SidebarNav sidebar={sidebar}>
 					<SidebarWrap>
 						<NavIcon>
 							<AiIcons.AiOutlineClose onClick={showSidebar} />
@@ -64,7 +65,7 @@ const Sidebar = () => {
 							return <SubMenu item={item} key={index} />;
 						})}
 					</SidebarWrap>
-				</SidebarNav>
+				</SidebarNav> */}
 			</IconContext.Provider>
 		</>
 	);
