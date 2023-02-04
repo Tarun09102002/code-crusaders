@@ -4,19 +4,33 @@ import axios from "axios";
 
 function Register() {
 	const [userInfo, setUserInfo] = useState({});
+	const [error, setError] = useState("");
 	const navigate = useNavigate();
 	const register = async (e) => {
 		e.preventDefault();
+		if (userInfo.password !== userInfo.confirmPassword) {
+			setError("Passwords do not match");
+			return;
+		}
+		if (
+			!userInfo.email ||
+			!userInfo.password ||
+			!userInfo.confirmPassword ||
+			!userInfo.name ||
+			!userInfo.username
+		) {
+			setError("Please fill all the fields");
+			return;
+		}
 		try {
-			console.log(userInfo);
 			const { data } = await axios.post(
 				`${process.env.REACT_APP_SERVER_URI}/register`,
 				userInfo
 			);
-			localStorage.setItem("token", data.token);
-			navigate("/");
+			navigate("/login");
 		} catch (error) {
 			console.log(error);
+			setError(error.response.data.message);
 		}
 	};
 	return (
@@ -77,11 +91,14 @@ function Register() {
 								value={userInfo.confirmPassword}
 							/>
 							<div
-								className="text-center my-5 cursor-pointer"
+								className="text-center mt-5 cursor-pointer"
 								onClick={() => navigate("/login")}
 							>
 								Already have an account?
 							</div>
+							{error && (
+								<div className="text-red-500 text-center mb-3">{error}</div>
+							)}
 							<div className="flex flex-row justify-center items-center">
 								<button
 									type="submit"
