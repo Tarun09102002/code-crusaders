@@ -12,7 +12,7 @@ function Login() {
 				`${process.env.REACT_APP_SERVER_URI}/login`,
 				userInfo
 			);
-			sessionStorage.setItem("token", data.token);
+			sessionStorage.setItem("userId", data.userId);
 			navigate("/");
 		} catch (error) {
 			console.log(error);
