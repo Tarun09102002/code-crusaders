@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 import axios from "axios";
+import "./UploadNotes.css";
 
 const UploadNotes = () => {
   const [fileUpload, setFileUploader] = useState(null);
@@ -35,31 +36,55 @@ const UploadNotes = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={(event) => formHandler(event)}>
-        <label>Title</label>
-        <input type="text" ref={title} id="name" />
+    <div className="bodyContainer">
+      <div className="uploadContainer">
+        <h1 className="title">Upload Notes</h1>
+        <form
+          onSubmit={(event) => formHandler(event)}
+          className="formClass flex"
+        >
+          <div className="input-container">
+            <label>Title</label>
+            <input type="text" ref={title} id="name" placeholder="Title" />
+          </div>
 
-        <label>Topic</label>
-        <input type="text" ref={topic} id="Topic" />
+          <div className="input-container">
+            <label>Topic</label>
+            <input type="text" ref={topic} id="Topic" placeholder="Topic" />
+          </div>
 
-        <label>Description</label>
-        <input type="text" ref={description} id="description" />
+          <div className="input-container">
+            <label>Description</label>
+            <input
+              type="text"
+              ref={description}
+              id="description"
+              placeholder="Description"
+            />
+          </div>
 
-        <label>File</label>
-        <input
-          type="file"
-          onChange={(event) => {
-            setFileUploader(event.target.files[0]);
-          }}
-          className="file:mr-4 file:py-2 file:px-4
+          <label>File</label>
+          <input
+            type="file"
+            onChange={(event) => {
+              setFileUploader(event.target.files[0]);
+            }}
+            className="file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-violet-50 
             hover:file:bg-violet-100"
-        ></input>
-        <button type="submit">Upload File</button>
-      </form>
+          ></input>
+          <div className="buttonClass">
+            <button
+              type="submit"
+              class="bg-transparent w-48 hover:bg-black text-black font-semibold hover:text-white py-2 px-4 border border-black hover:border-transparent rounded mt-4"
+            >
+              Upload File
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
