@@ -1,33 +1,3 @@
-// import React, { useState } from "react";
-// import "./sidebar.css";
-// import * as FaIcons from "react-icons/fa";
-// import * as AiIcons from "react-icons/ai";
-
-// const Sidebar = () => {
-//   const [sidebar, setSidebar] = useState(false);
-//   const showSidebar = () => {
-//     setSidebar(!sidebar);
-//     console.log(sidebar);
-//   };
-//   return (
-//     <>
-//       <div className="navbar">
-//         <div className="navIcon">
-//           {sidebar && <FaIcons.FaBars onClick={showSidebar} />}
-//         </div>
-//       </div>
-//       <div className="sidebar" sidebar={sidebar}>
-//         <div className="sidebarWrap">
-//           <div className="navIcon">
-//             {sidebar && <AiIcons.AiOutlineClose onClick={showSidebar} />}
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Sidebar;
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -92,7 +62,7 @@ const Sidebar = () => {
               <AiIcons.AiOutlineClose onClick={showSidebar} />
             </NavIcon>
             {SidebarData.map((item, index) => {
-              return <SubMenu item={item} key={index} />;
+              return <SubMenu item={item} key={index} onClick={onClickHandler}/>;
             })}
           </SidebarWrap>
         </SidebarNav>
