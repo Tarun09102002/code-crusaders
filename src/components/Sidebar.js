@@ -49,11 +49,12 @@ const Sidebar = () => {
 	return (
 		<>
 			<IconContext.Provider value={{ color: "#fff" }}>
-				<Nav className="flex flex-row justify-between w-full">
-					<div className="text-white font-semibold text-xl ml-3">StudyPat</div>
+				<Nav className="flex flex-row justify-between w-full px-10">
+					<div className="text-white font-semibold text-2xl ">StudyPat</div>
 					<div className="flex flex-row mr-8">
-						<div className="text-white  text-xl mr-3">Your Notes</div>
-						<div className="text-white text-xl mr-3">Quiz</div>
+						<div className="text-white  text-xl mr-5">Your Notes</div>
+						<div className="text-white text-xl mr-5">Quiz</div>
+						<div className="text-white text-xl mr-5">Calendar</div>
 					</div>
 				</Nav>
 				{/* <SidebarNav sidebar={sidebar}>
