@@ -9,13 +9,11 @@ export const SidebarData = [
     title: 'Overview',
     path: '/overview',
     icon: <AiIcons.AiFillHome />,
-    iconClosed: <RiIcons.RiArrowDownSFill />,
-    iconOpened: <RiIcons.RiArrowUpSFill />,
   },
   {
     title: 'Library',
     path: '/library',
-    icon: <IoIcons.IoIosPaper />,
+    icon: <IoIcons.IoIosPaper  />,
   },
   {
     title: 'Products',
