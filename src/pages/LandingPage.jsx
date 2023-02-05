@@ -10,7 +10,7 @@ function LandingPage() {
 	const fetchNotes = async () => {
 		try {
 			const { data } = await axios.get(
-				`${process.env.REACT_APP_SERVER_URI}/getNotes/${sessionStorage.getItem(
+				`${process.env.REACT_APP_SERVER_URL}/getNotes/${sessionStorage.getItem(
 					"userId"
 				)}`
 			);

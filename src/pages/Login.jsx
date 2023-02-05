@@ -1,6 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CometChat } from "@cometchat-pro/chat";
 import axios from "axios";
+let authKey = "9542d5b83937233298fa94c4dda7e21d3f3254cc";
+const appID = "23180388d90eed40";
+let region = "us";
+
+const appSetting = new CometChat.AppSettingsBuilder()
+	.subscribePresenceForAllUsers()
+	.setRegion(region)
+	.build();
+CometChat.init(appID, appSetting).then(
+	() => {
+		console.log("Initialization completed successfully");
+		// You can now call login function.
+	},
+	(error) => {
+		console.log("Initialization failed with error:", error);
+		// Check the reason for error and take appropriate action.
+	}
+);
 
 function Login() {
 	const [userInfo, setUserInfo] = useState({});
@@ -9,10 +28,18 @@ function Login() {
 		e.preventDefault();
 		try {
 			const { data } = await axios.post(
-				`${process.env.REACT_APP_SERVER_URI}/login`,
+				`${process.env.REACT_APP_SERVER_URL}/login`,
 				userInfo
 			);
 			sessionStorage.setItem("userId", data.userId);
+			CometChat.login(data.userId, authKey).then(
+				(user) => {
+					console.log("Login Successful:", { user });
+				},
+				(error) => {
+					console.log("Login failed with exception:", { error });
+				}
+			);
 			navigate("/");
 		} catch (error) {
 			console.log(error);
