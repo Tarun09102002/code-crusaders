@@ -1,20 +1,14 @@
-import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Sidebar from "../components/Sidebar";
-import MessageForm from "../components/MessageForm";
-const Chat = () => {
+import { useEffect } from "react";
+import { CometChat } from "@cometchat-pro/chat";
+import { useParams } from "react-router-dom";
+import { CometChatUI } from "../cometchat-pro-react-ui-kit/CometChatWorkspace/src";
+
+function Chat() {
 	return (
-		<Container>
-			<Row>
-				<Col md={4}>
-					<Sidebar />
-				</Col>
-				<Col md={8}>
-					<MessageForm />
-				</Col>
-			</Row>
-		</Container>
+		<div style={{ width: "100%", height: "100vh" }}>
+			<CometChatUI />
+		</div>
 	);
-};
+}
 
 export default Chat;
