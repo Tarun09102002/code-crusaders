@@ -9,6 +9,7 @@ import {
 	Chat,
 } from "./pages";
 import { Sidebar } from "./components/index";
+// import {Quiz} from "./pages/Quiz";
 
 function App() {
 	return (
