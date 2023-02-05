@@ -24,7 +24,7 @@ function Register() {
 		}
 		try {
 			const { data } = await axios.post(
-				`${process.env.REACT_APP_SERVER_URI}/register`,
+				`${process.env.REACT_APP_SERVER_URL}/register`,
 				userInfo
 			);
 			navigate("/login");

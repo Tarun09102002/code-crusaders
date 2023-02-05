@@ -9,7 +9,7 @@ function Login() {
 		e.preventDefault();
 		try {
 			const { data } = await axios.post(
-				`${process.env.REACT_APP_SERVER_URI}/login`,
+				`${process.env.REACT_APP_SERVER_URL}/login`,
 				userInfo
 			);
 			sessionStorage.setItem("userId", data.userId);
