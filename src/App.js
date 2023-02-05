@@ -7,6 +7,7 @@ import {
 	Library,
 	LandingPage,
 	Chat,
+	Quiz,
 } from "./pages";
 import { Sidebar } from "./components/index";
 // import {Quiz} from "./pages/Quiz";
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/library" element={<Library />}></Route>
 				<Route path="/" element={<LandingPage />}></Route>
 				<Route path="/chat" element={<Chat />}></Route>
+				<Route path="/quiz" element={<Quiz />}></Route>
 			</Routes>
 		</>
 	);
