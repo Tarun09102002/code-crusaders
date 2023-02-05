@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login, Register, UploadNotes, Library, LandingPage } from "./pages";
+import { Login, Register, UploadNotes, Library, LandingPage,Quiz } from "./pages";
 import { Sidebar } from "./components/index";
+// import {Quiz} from "./pages/Quiz";
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<Route path="/uploadNotes" element={<UploadNotes />}></Route>
 				<Route path="/library" element={<Library />}></Route>
 				<Route path="/" element={<LandingPage />}></Route>
+				<Route path="/quiz" element={<Quiz />}></Route>
 			</Routes>
 		</>
 	);
