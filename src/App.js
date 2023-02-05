@@ -1,6 +1,13 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login, Register, UploadNotes, Library, LandingPage } from "./pages";
+import {
+	Login,
+	Register,
+	UploadNotes,
+	Library,
+	LandingPage,
+	Chat,
+} from "./pages";
 import { Sidebar } from "./components/index";
 
 function App() {
@@ -13,6 +20,7 @@ function App() {
 				<Route path="/uploadNotes" element={<UploadNotes />}></Route>
 				<Route path="/library" element={<Library />}></Route>
 				<Route path="/" element={<LandingPage />}></Route>
+				<Route path="/chat" element={<Chat />}></Route>
 			</Routes>
 		</>
 	);
